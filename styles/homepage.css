@@ -1,0 +1,40 @@
+#nav{
+	margin-top:0px;
+}
+#sitename p{
+	margin:0px;
+	font-weight:bold;
+	font-size:24px;
+	
+}
+body {
+	background-color:#c3c3c3;
+}
+.brand{
+	color:#edad2e;
+	margin-top:20px;
+	margin-right:20px;
+}
+#maindata {
+	
+	background-color:#c3c3c3;
+	
+}
+#maindata div{
+	margin-top:50px;
+}
+#maindata h3 {
+color:#edad2e;	
+text-align:center;
+margin-bottom:20px;
+}
+#collapsibleNavbar ul li a {
+	color:#edad2e;	
+}
+.navbar-nav > li > .dropdown-menu { background-color:#404040; }{
+	
+}
+.footer {
+	background-color:#000000;
+	color:#edad2e;
+}
