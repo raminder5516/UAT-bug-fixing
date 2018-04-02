@@ -17,26 +17,30 @@
     <div>
         <div class="row d-flex justify-content-around" id="maindata">
             <div class="col-sm-2 jumbotron" ><h3></h3> <p></p></div>
-            <div class="col-sm-6 jumbotron"><h3>Add Project</h3>
+            <div class="col-sm-6 jumbotron"><h3>All Projects with Bugs</h3>
                 <form action="/viewProject.php">
                     <div class="form-group">
-                        <label for="name">Project Name:</label>
-                        <input type="text" class="form-control" id="name">
+                        <label for="name1">UAT Bug Tracking System</label>
+                        <label for="bugs1">4</label>
+                        <a class="btn btn-primary" href="allBugsUpdate.php">View Update</a>
+
                     </div>
                     <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" rows="3" id="description"></textarea>
+                        <label for="name2">DRHC Center</label>
+                        <label for="bugs2">7</label>
+                        <a class="btn btn-primary" href="allBugsUpdate.php">View Update</a>
                     </div>
                     <div class="form-group">
-                        <label for="date">Due Date:</label>
-                        <input type="datetime" class="form-control" id="duedate">
+                        <label for="name3">LDHC Center</label>
+                        <label for="bugs3">6</label>
+                        <a class="btn btn-primary" href="allBugsUpdate.php">View Update</a>
                     </div>
                     <div class="form-group">
-                        <label for="manager">Project Manager:</label>
-                        <input type="text" class="form-control" id="pm">
+                        <label for="name4">St. Joseph Hospital Project</label>
+                        <label for="bugs4">9</label>
+                        <a class="btn btn-primary" href="allBugsUpdate.php">View Update</a>
                     </div>
-                    <a class="btn btn-primary" href="viewProjects.php">Add Project</a>
-                    <a class="back" href="viewProjects.php">back</a>
+                    <a class="back" href="home.php">back</a>
                 </form>
             </div>
             <div class="col-sm-2 jumbotron"><h3></h3></div>

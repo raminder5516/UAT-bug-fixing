@@ -18,33 +18,45 @@
         <div class="row d-flex justify-content-around" id="maindata">
             <div class="col-sm-2 jumbotron" ><h3></h3> <p></p></div>
             <div class="col-sm-6 jumbotron"><h3>All Projects</h3>
+                <form class="form-inline">
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> By Programmer
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> By Tester
+                        </label>
+                    </div>
+
+                    <div class="form-group mx-sm-3">
+                        <input type="text" class="form-control" id="inputPassword2" placeholder="Programmer or Tester">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+
+                </form>
+
+
                 <form action="/viewProjects.php">
                     <div class="form-group">
                         <label for="name">UAT Bug Tracking System</label>
-                        <a class="btn btn-primary" href="deleteProject.php">View Project</a>
-                        <a class="btn btn-primary" href="updateProject.php">Update Project</a>
-                        <a class="btn btn-primary" href="bugList.php">View Bugs</a>
+                        <a class="btn btn-primary" href="programmerDetail.php">View Detail</a>
                     </div>
                     <div class="form-group">
                         <label for="name">DRHC Center</label>
-                        <a class="btn btn-primary" href="deleteProject.php">View Project</a>
-                        <a class="btn btn-primary" href="updateProject.php">Update Project</a>
-                        <a class="btn btn-primary" href="bugList.php">View Bugs</a>
+                        <a class="btn btn-primary" href="programmerDetail.php">View Detail</a>
                     </div>
                     <div class="form-group">
                         <label for="name">LDHC Center</label>
-                        <a class="btn btn-primary" href="deleteProject.php">View Project</a>
-                        <a class="btn btn-primary" href="updateProject.php">Update Project</a>
-                        <a class="btn btn-primary" href="bugList.php">View Bugs</a>
+                        <a class="btn btn-primary" href="programmerDetail.php">View Detail</a>
                     </div>
                     <div class="form-group">
                         <label for="name">St. Joseph Hospital Project</label>
-                        <a class="btn btn-primary" href="deleteProject.php">View Project</a>
-                        <a class="btn btn-primary" href="updateProject.php">Update Project</a>
-                        <a class="btn btn-primary" href="bugList.php">View Bugs</a>
+                        <a class="btn btn-primary" href="programmerDetail.php">View Detail</a>
                     </div>
-                    <a class="btn btn-primary" href="addProjects.php">Add Project</a>
-                    <a class="back" href="home.php">back</a>
+
+                    <a class="back" href="programmers.php">back</a>
 
 
                 </form>

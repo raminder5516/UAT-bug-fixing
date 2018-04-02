@@ -17,26 +17,30 @@
     <div>
         <div class="row d-flex justify-content-around" id="maindata">
             <div class="col-sm-2 jumbotron" ><h3></h3> <p></p></div>
-            <div class="col-sm-6 jumbotron"><h3>Add Project</h3>
+            <div class="col-sm-6 jumbotron"><h3>All Programmers </h3>
                 <form action="/viewProject.php">
                     <div class="form-group">
-                        <label for="name">Project Name:</label>
-                        <input type="text" class="form-control" id="name">
+                        <label for="name1">Raminder</label>
+                        <label for="project1">1</label>
+                        <a class="btn btn-primary" href="programmerHistory.php">View History</a>
+
                     </div>
                     <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" rows="3" id="description"></textarea>
+                        <label for="name2">Raj</label>
+                        <label for="project2">3</label>
+                        <a class="btn btn-primary" href="programmerHistory.php">View History</a>
                     </div>
                     <div class="form-group">
-                        <label for="date">Due Date:</label>
-                        <input type="datetime" class="form-control" id="duedate">
+                        <label for="name3">Nadeem</label>
+                        <label for="project3">2</label>
+                        <a class="btn btn-primary" href="programmerHistory.php">View History</a>
                     </div>
                     <div class="form-group">
-                        <label for="manager">Project Manager:</label>
-                        <input type="text" class="form-control" id="pm">
+                        <label for="name4">Matthew</label>
+                        <label for="project4">3</label>
+                        <a class="btn btn-primary" href="programmerHistory.php">View History</a>
                     </div>
-                    <a class="btn btn-primary" href="viewProjects.php">Add Project</a>
-                    <a class="back" href="viewProjects.php">back</a>
+                    <a class="back" href="home.php">back</a>
                 </form>
             </div>
             <div class="col-sm-2 jumbotron"><h3></h3></div>
