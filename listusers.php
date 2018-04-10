@@ -1,6 +1,6 @@
 <?php
 
-//Lab6 - due on 20th Mar 2018
+//Project Phase 1 - Feature 1 by Nadeem
 
 require_once 'Database.php';
 require_once 'userregistration.php';

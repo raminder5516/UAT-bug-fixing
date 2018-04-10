@@ -1,21 +1,22 @@
 <?php
 class UserRegistration {
 
-    public function addUser($db, $fname, $lname, $phone, $userEmail, $userPassword){
-        $sql = "INSERT INTO userregistration (fname, lname, phone, useremail, userpassword)
-            VALUES (:fname, :lname, :phone, :useremail, :userpassword)";
+    public function addUser($db, $user_name, $fname, $lname, $phone, $email, $password){
+        $sql = "INSERT INTO users (user_name, fname, lname, phone, email, password)
+            VALUES (:user_name,:fname, :lname, :phone, :email, :password)";
         $pdostm = $db->prepare($sql);
+        $pdostm->bindValue(':user_name', $user_name, PDO::PARAM_STR);
         $pdostm->bindValue(':fname', $fname, PDO::PARAM_STR);
         $pdostm->bindValue(':lname', $lname, PDO::PARAM_STR);
         $pdostm->bindValue(':phone', $phone, PDO::PARAM_STR);
-        $pdostm->bindValue(':useremail', $userEmail, PDO::PARAM_STR);
-        $pdostm->bindValue(':userpassword', $userPassword, PDO::PARAM_STR);
+        $pdostm->bindValue(':email', $email, PDO::PARAM_STR);
+        $pdostm->bindValue(':password', $password, PDO::PARAM_STR);
         $count  = $pdostm->execute();
         return $count;
     }
 
     public function getAllUsers($db){
-        $sql = "SELECT * FROM userregistration";
+        $sql = "SELECT * FROM users";
         $pdostm = $db->prepare($sql);
         //specify fetch method
         $pdostm->setFetchMode(PDO::FETCH_ASSOC);
@@ -25,27 +26,29 @@ class UserRegistration {
         return $results;
     }
 
-    public function updateUser($db, $id, $fname, $lname, $phone, $userEmail, $userPassword){
-        $sql = "UPDATE userregistration 
-                SET fname = :fname,
+    public function updateUser($db, $id, $user_name, $fname, $lname, $phone, $email, $password){
+        $sql = "UPDATE users 
+                SET user_name = :user_name,
+                fname = :fname,
                 lname = :lname,
                 phone = :phone,
-                userEmail = :userEmail,
-                userPassword = :userPassword
+                email = :email,
+                password = :password
                 WHERE id = :id";
         $pdostm = $db->prepare($sql);
         $pdostm->bindValue(':id', $id, PDO::PARAM_INT);
+        $pdostm->bindValue(':user_name', $user_name, PDO::PARAM_STR);
         $pdostm->bindValue(':fname', $fname, PDO::PARAM_STR);
         $pdostm->bindValue(':lname', $lname, PDO::PARAM_STR);
         $pdostm->bindValue(':phone', $phone, PDO::PARAM_STR);
-        $pdostm->bindValue(':userEmail', $userEmail, PDO::PARAM_STR);
-        $pdostm->bindValue(':userPassword', $userPassword, PDO::PARAM_STR);
+        $pdostm->bindValue(':email', $email, PDO::PARAM_STR);
+        $pdostm->bindValue(':password', $password, PDO::PARAM_STR);
         $count  = $pdostm->execute();
         return $count;
     }
 
     public function getUserById($db, $id){
-        $query = "SELECT * FROM userregistration WHERE id= :id";
+        $query = "SELECT * FROM users WHERE id= :id";
         $pdostm = $db->prepare($query);
         $pdostm->bindValue(':id', $id, PDO::PARAM_INT);
         $pdostm->execute();
@@ -54,11 +57,14 @@ class UserRegistration {
     }
 
     public function deleteUser($db, $id){
-        $query = "DELETE FROM userregistration WHERE id = :id";
+        $query = "DELETE FROM users WHERE id = :id";
         $pdostm = $db->prepare($query);
         $pdostm->bindValue(':id', $id, PDO::PARAM_INT);
         $count = $pdostm->execute();
         return $count;
     }
+
+    }
+
 
 }
