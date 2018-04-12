@@ -1,29 +1,3 @@
-<?php
-require_once 'Database.php';
-require_once 'project.php';
-$db= Database::getDb();
-$myproj = new Project();
-if(isset($_POST['update'])) {
-    $id = $_POST['id'];
-    $p = $myproj->getProjectById($db, $id);
-}
-if(isset($_POST['upt'])){
-    $id = $_POST['id'];
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $date_started = $_POST['date_started'];
-    $date_due = $_POST['date_due'];
-    $count = $myproj->updateProject($db, $id, $name, $description, $date_started, $date_due);
-    if($count){
-        header("Location: viewProjects.php");
-    }else {
-        echo "problem updating";
-    }
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,27 +17,27 @@ if(isset($_POST['upt'])){
     <div>
         <div class="row d-flex justify-content-around" id="maindata">
             <div class="col-sm-2 jumbotron" ><h3></h3> <p></p></div>
-            <div class="col-sm-6 jumbotron"><h3>Update Project</h3>
-                <form action="updateProject.php">
+            <div class="col-sm-6 jumbotron"><h3>Project Detail</h3>
+                <form action="viewProjectToDelete.php">
                     <div class="form-group">
                         <label for="name">Project Name:</label>
-                        <input type="text" class="form-control"  id="name" value="<?= $p->name; ?>">
+                        <label for="namePro" value="<?= $p->name; ?>"></label>
                     </div>
                     <div class="form-group">
                         <label for="description">Description:</label>
-                        <input type="textarea" class="form-control" id="desc"  value="<?= $p->description; ?>" >
+                        <label for="desc">It is the online system where a manager adds the project
+                            and assigns that project to a tester for finding the bug and programmer to solve that bug</label>
                     </div>
                     <div class="form-group">
-                        <label for="startdate">Date of Start:</label>
-                        <input type="datetime" class="form-control" id="startdate" value="<?= $p->date_started; ?>" >
+                        <label for="date">Due Date:</label>
+                        <label for="datedue">2018-04-10</label>
                     </div>
                     <div class="form-group">
-                        <label for="duedate">Due Date:</label>
-                        <input type="datetime" class="form-control" id="duedate" value="<?= $p->date_due; ?>">
+                        <label for="manager">Project Manager:</label>
+                        <label for="managername">Raminder Kaur</label>
                     </div>
+                    <a class="btn btn-primary" href="viewProjects.php">Delete Project</a>
 
-
-                    <a class="btn btn-primary" href="viewProjects.php">Update Project</a>
 
                 </form>
             </div>

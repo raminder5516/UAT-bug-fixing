@@ -1,3 +1,11 @@
+<?php
+require_once 'Database.php';
+require_once 'project.php';
+$p = new Project();
+$projects = $p->getAllProjects(Database::getDb());
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,44 +22,28 @@
 
 <header> <?php include "header.php"; ?></header>
 <main>
-    <div>
-        <div class="row d-flex justify-content-around" id="maindata">
-            <div class="col-sm-2 jumbotron" ><h3></h3> <p></p></div>
-            <div class="col-sm-6 jumbotron"><h3>All Projects</h3>
-                <form action="/viewProjects.php">
-                    <div class="form-group">
-                        <label for="name">UAT Bug Tracking System</label>
-                        <a class="btn btn-primary" href="deleteProject.php">View Project</a>
-                        <a class="btn btn-primary" href="updateProject.php">Update Project</a>
-                        <a class="btn btn-primary" href="bugList.php">View Bugs</a>
-                    </div>
-                    <div class="form-group">
-                        <label for="name">DRHC Center</label>
-                        <a class="btn btn-primary" href="deleteProject.php">View Project</a>
-                        <a class="btn btn-primary" href="updateProject.php">Update Project</a>
-                        <a class="btn btn-primary" href="bugList.php">View Bugs</a>
-                    </div>
-                    <div class="form-group">
-                        <label for="name">LDHC Center</label>
-                        <a class="btn btn-primary" href="deleteProject.php">View Project</a>
-                        <a class="btn btn-primary" href="updateProject.php">Update Project</a>
-                        <a class="btn btn-primary" href="bugList.php">View Bugs</a>
-                    </div>
-                    <div class="form-group">
-                        <label for="name">St. Joseph Hospital Project</label>
-                        <a class="btn btn-primary" href="deleteProject.php">View Project</a>
-                        <a class="btn btn-primary" href="updateProject.php">Update Project</a>
-                        <a class="btn btn-primary" href="bugList.php">View Bugs</a>
-                    </div>
-                    <a class="btn btn-primary" href="addProjects.php">Add Project</a>
-                    <a class="back" href="home.php">back</a>
+<h1>List of projects</h1>
+<ul>
+    <?php foreach ($projects as $p){
+        echo "<li>" ."Project name:". " ". $p->name .
+            "<br/>"."Description:"." ". $p->description .
+            "<br/>"."Start date of project:"." ". $p->date_started .
+            "<br/>"."Due date of project:"." ". $p->date_due .
+            "<br/>"."Project manager:"." ". $p->project_manager.
+            " <form action='viewProjectToDelete.php' method='post'>
+            <input type='hidden' name='id' value='$p->id' />
+            <input type='submit' name='delete' value='Delete'>
+            </form> 
+            <form action='updateProject.php' method='post'>
+            <input type='hidden' name='id' value='$p->id'/>
+            <input type='submit' name='update' value='Update'>
+            </form>
+            </li>";
+    } ?>
+</ul>
 
+<a href="addProjects.php">Add Project</a>
 
-                </form>
-            </div>
-            <div class="col-sm-2 jumbotron"><h3></h3></div>
-        </div>
-    </div>
 </main>
 <footer><?php include "footer.php"; ?></footer>
 </body>
