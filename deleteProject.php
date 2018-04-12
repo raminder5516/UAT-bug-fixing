@@ -1,3 +1,18 @@
+<?php
+require_once 'Database.php';
+require_once 'project.php';
+$id = $_POST['id'];
+$db = Database::getDb();
+$p =  new Project();
+$count = $p->deleteProject($db, $id);
+if($count){
+    header("Location: viewProjects.php");
+}else {
+    echo "problem deleting";
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +33,7 @@
         <div class="row d-flex justify-content-around" id="maindata">
             <div class="col-sm-2 jumbotron" ><h3></h3> <p></p></div>
             <div class="col-sm-6 jumbotron"><h3>Project Detail</h3>
-                <form action="/viewProject.php">
+                <form action="deleteProject.php">
                     <div class="form-group">
                         <label for="name">Project Name:</label>
                         <label for="namePro">UAT Bug Tracking System</label>

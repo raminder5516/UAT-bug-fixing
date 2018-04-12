@@ -1,16 +1,17 @@
 <?php
 class UserRegistration {
 
-    public function addUser($db, $user_name, $fname, $lname, $phone, $email, $password){
-        $sql = "INSERT INTO users (user_name, fname, lname, phone, email, password)
-            VALUES (:user_name,:fname, :lname, :phone, :email, :password)";
+    public function addUser($db, $fname, $lname, $user_name, $email, $pass,$phone, $type){
+        $sql = "INSERT INTO users (fname, lname, user_name, email, password, phone,  type)
+            VALUES (:fname, :lname,:uname, :email, :pass, :phone, :type)";
         $pdostm = $db->prepare($sql);
-        $pdostm->bindValue(':user_name', $user_name, PDO::PARAM_STR);
         $pdostm->bindValue(':fname', $fname, PDO::PARAM_STR);
         $pdostm->bindValue(':lname', $lname, PDO::PARAM_STR);
-        $pdostm->bindValue(':phone', $phone, PDO::PARAM_STR);
+        $pdostm->bindValue(':uname', $user_name, PDO::PARAM_STR);
         $pdostm->bindValue(':email', $email, PDO::PARAM_STR);
-        $pdostm->bindValue(':password', $password, PDO::PARAM_STR);
+        $pdostm->bindValue(':pass', $pass, PDO::PARAM_STR);
+        $pdostm->bindValue(':phone', $phone, PDO::PARAM_STR);
+        $pdostm->bindValue(':type', $type, PDO::PARAM_STR);
         $count  = $pdostm->execute();
         return $count;
     }
@@ -63,8 +64,5 @@ class UserRegistration {
         $count = $pdostm->execute();
         return $count;
     }
-
-
-
 
 }
