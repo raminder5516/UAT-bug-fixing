@@ -79,6 +79,17 @@ session_start();
 if (isset($_POST['login'])) {
     $user_name = $_POST['uname'];
     $pass = $_POST['pass'];
+    $u = new UserRegistration();
+    $user = $u->chkLogin(Database::getDb(), $user_name, $pass);
+    if (count($user) > 0) {
+        //session_start();
+        $_SESSION["UID"] = $user->id;
+        header('location: home.php');
+
+    } else {
+
+    }
+}
 
   /*  if (empty($user_name)) {
         array_push($errors, "Username is required");
@@ -87,7 +98,7 @@ if (isset($_POST['login'])) {
         array_push($errors, "Password is required");
     }*/
 
-    if (count($errors) == 0) {
+   /* if (count($errors) == 0) {
         $pass = md5($pass);
         $query = "SELECT * FROM users WHERE user_name='$user_name' AND password='$pass'";
         $results = mysqli_query($query);
@@ -98,7 +109,7 @@ if (isset($_POST['login'])) {
         }else {
             array_push($errors, "Wrong username/password combination"); 
         }
-    }
+    }*
 }
 
 

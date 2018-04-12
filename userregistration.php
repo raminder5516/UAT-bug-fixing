@@ -64,5 +64,15 @@ class UserRegistration {
         $count = $pdostm->execute();
         return $count;
     }
+    public function chkLogin($db,$uname,$password){
+        $query = "SELECT * FROM users WHERE email= :uname AND password= :password";
+        $pdostm = $db->prepare($query);
+        $pdostm->bindValue(':uname', $uname, PDO::PARAM_STR);
+        $pdostm->bindValue(':password', $password, PDO::PARAM_STR);
+        $pdostm->execute();
+        $result = $pdostm->fetch(PDO::FETCH_OBJ);
+        return $result;
+
+    }
 
 }
