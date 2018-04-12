@@ -64,7 +64,7 @@ class UserRegistration {
         return $count;
     }
 
-    }
+
 
 
 }
