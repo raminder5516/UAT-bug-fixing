@@ -33,8 +33,13 @@
             <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Users</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Time Tracker</a>
+                    <a class="dropdown-item" href="listusers.php">User Management</a>
+
                     <a class="dropdown-item" href="programmers.php">User App History</a>
                     <a class="dropdown-item" href="listAssignableProjects.php">Assign Projects</a>
+                    <a class="dropdown-item" href="user_Assign/">User Assignment</a>
+
+
                 </div>
             </li>
             <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tickets</a>
@@ -43,6 +48,7 @@
                     <a class="dropdown-item" href="#">File </a>
                     <a class="dropdown-item" href="bugUpdateProject.php">Bug Updates</a>
                     <a class="dropdown-item" href="listProjectBugs.php">Bug Closure</a>
+                    <a class="dropdown-item" href="performance.php">Performance (Statistics)</a>
                 </div>
             </li>
 
